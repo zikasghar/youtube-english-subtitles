@@ -1,0 +1,7 @@
+packages:
+  - youtube-english-subtitles
+catalog:
+  vite: 7.3.7
+autoInstallPeers: false
+onlyBuiltDependencies:
+  - esbuild

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>YouTube English Subtitles</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="panel">
+      <div class="brand-row">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M4 5.5h16v10H9l-5 3v-13Z" />
+            <path d="M8 9.5h8M8 12.5h5" />
+          </svg>
+        </div>
+        <div>
+          <p class="eyebrow">YOUTUBE ACCESSIBILITY</p>
+          <h1>English subtitles</h1>
+        </div>
+      </div>
+
+      <section class="control" aria-labelledby="toggle-title">
+        <div class="control-copy">
+          <h2 id="toggle-title">Show subtitles</h2>
+          <p id="toggle-description">English captions over the video</p>
+        </div>
+        <label class="switch">
+          <input id="enabled" type="checkbox" aria-label="Show English subtitles" />
+          <span class="switch-track"></span>
+        </label>
+      </section>
+
+      <p id="status" class="status" role="status" aria-live="polite">
+        Open a YouTube video to get started.
+      </p>
+
+      <section class="fallback" aria-labelledby="fallback-title">
+        <div class="fallback-heading">
+          <span class="fallback-icon" aria-hidden="true">Aa</span>
+          <div>
+            <h2 id="fallback-title">Audio translation</h2>
+            <p>English subtitles, prepared on your device.</p>
+          </div>
+        </div>
+        <label class="language-label" for="source-language">Video’s spoken language</label>
+        <select id="source-language" class="language-select" required>
+          <option value="" disabled selected>Choose spoken language</option>
+        </select>
+        <label class="language-label" for="preparation-length">Initial waiting time</label>
+        <select id="preparation-length" class="language-select">
+          <option value="1">1 minute</option>
+          <option value="3">3 minutes</option>
+          <option value="5">5 minutes</option>
+        </select>
+        <div class="control mode-control">
+          <div class="control-copy">
+            <h2 id="two-tab-title">Two-tab mode</h2>
+            <p id="two-tab-description">Prepare ahead in a silent tab</p>
+          </div>
+          <label class="switch">
+            <input id="two-tab-mode" type="checkbox" role="switch"
+              aria-labelledby="two-tab-title" aria-describedby="two-tab-description" />
+            <span class="switch-track"></span>
+          </label>
+        </div>
+        <p class="language-note">Turn on to start; turn off to stop. In the new tab, open this extension once to allow capture. The selected wait starts when capture begins, not when the tab opens. Playback stays paused longer if subtitles are not ready. Keep both tabs open.</p>
+        <button id="capture-audio" class="action-button" type="button" hidden>
+          Start preparation capture
+        </button>
+        <button id="buffer-pause" class="action-button" type="button" hidden>
+          Pause to buffer
+        </button>
+      </section>
+
+      <div class="privacy">
+        <span class="privacy-dot" aria-hidden="true"></span>
+        <p>Audio stays on your device. The speech model downloads on first use.</p>
+      </div>
+    </main>
+    <script type="module" src="/popup.js"></script>
+  </body>
+</html>

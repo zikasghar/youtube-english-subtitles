@@ -1,0 +1,16 @@
+{
+  "name": "@workspace/youtube-english-subtitles",
+  "version": "1.6.3",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build && cp manifest.template.json dist/manifest.json && cp content.js background.js playback-recovery.js sync-playback.js rolling-playback.js rolling-session.js dist/",
+    "release": "node scripts/release.mjs",
+    "test": "node --test audio-worklet.test.mjs runtime-config.test.mjs speech-language.test.mjs speech-model.test.mjs speech-output.test.mjs subtitle-routing.test.mjs sync-audio.test.mjs sync-playback.test.mjs playback-recovery.test.mjs popup.test.mjs rolling.test.mjs",
+    "test:bundle": "node --test bundle.test.mjs"
+  },
+  "devDependencies": {
+    "@huggingface/transformers": "4.3.2",
+    "vite": "catalog:"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube English Subtitles",
+  "version": "1.6.3",
+  "minimum_chrome_version": "116",
+  "description": "Show English subtitles on YouTube using captions or on-device audio translation.",
+  "permissions": ["activeTab", "offscreen", "storage", "unlimitedStorage", "tabCapture", "scripting"],
+  "host_permissions": [
+    "https://www.youtube.com/*",
+    "https://huggingface.co/*",
+    "https://*.hf.co/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["playback-recovery.js", "sync-playback.js", "rolling-playback.js", "content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "English subtitles",
+    "default_popup": "popup.html"
+  }
+}
